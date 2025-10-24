@@ -12,6 +12,8 @@ stages:
        inputs:
          terraformVersion: 'latest'
      - task: TerraformTask@5
+
+       displayName: terraform init
        inputs:
          provider: 'azurerm'
          command: 'init'
@@ -20,3 +22,16 @@ stages:
          backendAzureRmStorageAccountName: 'pehlastg_1761306100929'
          backendAzureRmContainerName: 'pehlacont'
          backendAzureRmKey: 'key.tfstate'
+     - task: TerraformTask@5
+       displayName: terraform validate
+       inputs:
+         provider: 'azurerm'
+         command: 'validate'
+         workingDirectory: '$(System.DefaultWorkingDirectory)ENV/DEV'
+     - task: TerraformTask@5
+       displayName: terraform Plan
+       inputs:
+         provider: 'azurerm'
+         command: 'plan'
+         workingDirectory: '$(System.DefaultWorkingDirectory)ENV/DEV'
+         environmentServiceNameAzureRM: 'myself'
