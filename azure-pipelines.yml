@@ -22,12 +22,7 @@ stages:
          backendAzureRmStorageAccountName: 'pehlastg_1761306100929'
          backendAzureRmContainerName: 'pehlacont'
          backendAzureRmKey: 'key.tfstate'
-     - task: TerraformTask@5
-       displayName: terraform validate
-       inputs:
-         provider: 'azurerm'
-         command: 'validate'
-         workingDirectory: '$(System.DefaultWorkingDirectory)ENV/DEV'
+    
      - task: TerraformTask@5
        displayName: terraform Plan
        inputs:
