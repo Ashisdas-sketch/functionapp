@@ -1,0 +1,22 @@
+trigger: none
+pool: functionapp
+stages:
+ - stage: 
+   displayName: Build Stage
+   jobs:
+   - job: 
+     displayName: Terraform Install
+     steps:
+     - task: TerraformInstaller@1
+       displayName: Terraform Install
+       inputs:
+         terraformVersion: 'latest'
+     - task: TerraformTask@5
+       inputs:
+         provider: 'azurerm'
+         command: 'init'
+         workingDirectory: '$(System.DefaultWorkingDirectory)//functionapp'
+         backendServiceArm: 'myself'
+         backendAzureRmStorageAccountName: 'pehlastg_1761306100929'
+         backendAzureRmContainerName: 'pehlacont'
+         backendAzureRmKey: 'key.tfstate'
