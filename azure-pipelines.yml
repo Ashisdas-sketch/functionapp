@@ -19,7 +19,7 @@ stages:
          command: 'init'
          workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
          backendServiceArm: 'myself'
-         backendAzureRmStorageAccountName: 'pehlastg_1761306100929'
+         backendAzureRmStorageAccountName: 'pehlastg'
          backendAzureRmContainerName: 'pehlacont'
          backendAzureRmKey: 'key.tfstate'
     
