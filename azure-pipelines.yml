@@ -15,7 +15,7 @@ stages:
        inputs:
          provider: 'azurerm'
          command: 'init'
-         workingDirectory: '$(System.DefaultWorkingDirectory)/functionapp'
+         workingDirectory: '$(System.DefaultWorkingDirectory)/ENV/DEV'
          backendServiceArm: 'myself'
          backendAzureRmStorageAccountName: 'pehlastg_1761306100929'
          backendAzureRmContainerName: 'pehlacont'
